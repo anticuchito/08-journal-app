@@ -1,8 +1,7 @@
-const { scryRenderedComponentsWithType } = require("react-dom/test-utils");
 const { setError ,removeError,startLoading,finishLoading } = require("../../actions/ui");
 const { types } = require("../../types/types");
 
-describe('tes on ui-actions', () => {
+describe('test on ui-actions', () => {
     test(' all  acction should to work', () => {
         const action= setError('help!!!');
 
