@@ -2,7 +2,7 @@ import configureStore from "redux-mock-store"; //ES6 modules
 import thunk from "redux-thunk";
 import '@testing-library/jest-dom'
 import createMockStore from "redux-mock-store";
-const { login, logout, startLogout} = require("../../actions/auth");
+const { login, logout, startLogout, startLoginEmailPassword} = require("../../actions/auth");
 const { types } = require("../../types/types");
 
 const middlewares = [thunk];
@@ -36,11 +36,18 @@ describe('test whit acction of  auth', () => {
         await store.dispatch(startLogout());
         const actions = store.getActions();
 
-        console.log(actions);
-
-
-
+        expect(actions[0]).toEqual({type:types.logout});
+        expect(actions[1]).toEqual({type:types.notesLogoutClean});
+    
     });
+
+    test('should to start the starloginwhithemailand password', () => {
+        
+        await store.dispatch*(startLoginEmailPassword());
+        
+
+    })
+    
     
     
 })
