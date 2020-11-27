@@ -1,7 +1,6 @@
 import configureStore from "redux-mock-store"; //ES6 modules
 import thunk from "redux-thunk";
 import '@testing-library/jest-dom'
-import createMockStore from "redux-mock-store";
 const { login, logout, startLogout, startLoginEmailPassword} = require("../../actions/auth");
 const { types } = require("../../types/types");
 
@@ -41,13 +40,21 @@ describe('test whit acction of  auth', () => {
     
     });
 
-    test('should to start the starloginwhithemailand password', () => {
+    test('should to start the starloginwhithemailand password', async() => {
         
-        await store.dispatch*(startLoginEmailPassword());
+        await store.dispatch(startLoginEmailPassword('test@testing.com','residentevil6'));
+
+        const actions = store.getActions();
+
+        expect(actions[1]).toEqual({
+            type:types.login,
+            payload:{
+                 uid: 'JneheI4F4Da46BN7pnGl8Me6k6g2',
+                 displayName:null,
+            }
+        })
         
 
-    })
-    
-    
-    
+    });
+  
 })
