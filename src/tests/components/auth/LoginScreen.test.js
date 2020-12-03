@@ -33,10 +33,7 @@ const initState = {
 let store = mockStore(initState);
 store.dispatch = jest.fn();
 
-
-describe('pruebas en loginScreen', () => {
-
-    const wrapper = mount(
+const wrapper = mount(
     <Provider store={store}>
         <MemoryRouter>
             <LoginScreen/>
@@ -44,6 +41,8 @@ describe('pruebas en loginScreen', () => {
     </Provider>
     )
 
+
+describe('pruebas en loginScreen', () => {
 
     beforeEach(()=>{
         store = mockStore(initState);
